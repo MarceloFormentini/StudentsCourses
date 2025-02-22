@@ -1,7 +1,8 @@
 from src.model.config.connection import DBConnectionHandler
 from src.model.entities.eventos import Eventos
+from .interface.eventos_repository_interface import EventosRepositoryInterface
 
-class EventosRepository:
+class EventosRepository(EventosRepositoryInterface):
 	def insert(self, event_name: str) -> None:
 		with DBConnectionHandler() as db:
 			try:
