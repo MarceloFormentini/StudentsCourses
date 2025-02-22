@@ -46,3 +46,7 @@ Com isso é gerado o banco de dados. Acessar o banco de dados através e executa
   ```
   pip3 freeze > requirements.txt
   ```
+  - Lib para validação - https://pypi.org/project/Cerberus
+  ```
+  pip install Cerberus
+  ```
