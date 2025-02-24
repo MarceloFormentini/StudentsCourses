@@ -1,6 +1,6 @@
 from src.model.config.connection import DBConnectionHandler
 from src.model.entities.eventos import Eventos
-from .interface.eventos_repository_interface import EventosRepositoryInterface
+from src.model.repositories.interface.eventos_repository import EventosRepositoryInterface
 
 class EventosRepository(EventosRepositoryInterface):
 	def insert(self, event_name: str) -> None:
@@ -15,5 +15,10 @@ class EventosRepository(EventosRepositoryInterface):
 
 	def select_event(self, event_name: str) -> Eventos:
 		with DBConnectionHandler() as db:
-			data = db.session.query(Eventos).filter(Eventos.nome == event_name).one_or_none()
+			data = (
+				db.session
+				.query(Eventos)
+				.filter(Eventos.nome == event_name)
+				.one_or_none()
+			)
 			return data

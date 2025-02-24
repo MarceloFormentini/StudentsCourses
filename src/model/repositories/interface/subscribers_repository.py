@@ -7,5 +7,5 @@ class SubscribersRepositoryInterface(ABC):
 		pass
 
 	@abstractmethod
-	def select_subscriber(self, email: str, event_id: int) -> Inscritos:
+	def select_subscriber(self, email: str, evento_id: int) -> Inscritos:
 		pass

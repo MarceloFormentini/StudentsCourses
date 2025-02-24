@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+# classe responsável por gerencial a conexão com o banco de dados
 class DBConnectionHandler:
 	def __init__(self):
 		self.__connection_string = "sqlite:///schema.db"
@@ -20,4 +21,3 @@ class DBConnectionHandler:
 	# caso ocorram dentro do bloco with
 	def __exit__(self, exc_type, exc_value, traceback):
 		self.session.close()
-		# self.__engine.dispose()

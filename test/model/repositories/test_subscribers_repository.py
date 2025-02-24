@@ -14,8 +14,8 @@ def test_insert_subscribers():
 
 def test_select_subscribers():
 	subscriber_email = 'marceloformentini74@gmail.com'
-	subscriber_event_id = 1
+	subscriber_evento_id = 1
 	subscribers_repo = SubscribersRepository()
-	subscriber = subscribers_repo.select_subscriber(subscriber_email, subscriber_event_id)
+	subscriber = subscribers_repo.select_subscriber(subscriber_email, subscriber_evento_id)
 	assert subscriber.email == subscriber_email
-	assert subscriber.evento_id == subscriber_event_id
+	assert subscriber.evento_id == subscriber_evento_id

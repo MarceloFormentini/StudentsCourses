@@ -1,6 +1,6 @@
 from src.model.config.connection import DBConnectionHandler
 from src.model.entities.inscritos import Inscritos
-from .interface.subscribers_repository_interface import SubscribersRepositoryInterface
+from src.model.repositories.interface.subscribers_repository import SubscribersRepositoryInterface
 
 class SubscribersRepository(SubscribersRepositoryInterface):
 	def insert(self, subscriber_info: dict) -> None:
@@ -21,9 +21,11 @@ class SubscribersRepository(SubscribersRepositoryInterface):
 				db.session.rollback()
 				raise e
 
-	def select_subscriber(self, email: str, event_id: int) -> Inscritos:
+	def select_subscriber(self, email: str, evento_id: int) -> Inscritos:
 		with DBConnectionHandler() as db:
-			data = db.session.query(Inscritos).filter(
-				Inscritos.email == email, 
-				Inscritos.evento_id == event_id).one_or_none()
+			data = (
+				db.session
+				.query(Inscritos)
+				.filter(Inscritos.email == email, Inscritos.evento_id == evento_id)
+				.one_or_none())
 			return data

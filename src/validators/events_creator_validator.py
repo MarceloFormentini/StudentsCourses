@@ -11,5 +11,6 @@ def events_creator_validator(request: any):
 	})
 
 	response = body_validator.validate(request.json)
-	print(body_validator.errors)
-	return response
+
+	if not response:
+		raise Exception(body_validator.errors)

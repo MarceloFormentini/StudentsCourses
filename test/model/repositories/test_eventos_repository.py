@@ -8,7 +8,7 @@ def test_insert_eventos():
 	eventos_repo = EventosRepository()
 	eventos_repo.insert(event_name)
 
-@pytest.mark.skip(reason="Teste de integração - consulta ao banco de dados")
+# @pytest.mark.skip(reason="Teste de integração - consulta ao banco de dados")
 def test_select_eventos():
 	event_name = "EventoTeste"
 	eventos_repo = EventosRepository()
