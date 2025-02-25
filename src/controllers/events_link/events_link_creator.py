@@ -3,7 +3,7 @@ from src.http_types.http_response import HttpResponse
 from src.model.repositories.interface.eventos_link_repository import EventosLinkRepositoryInterface
 
 
-class EventsLinkCretor:
+class EventsLinkCreator:
 	def __init__(self, events_link_repository: EventosLinkRepositoryInterface):
 		self.__events_link_repository = events_link_repository
 

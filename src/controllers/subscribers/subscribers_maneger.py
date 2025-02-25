@@ -7,13 +7,13 @@ class SubscriberManeger:
 		self.__subscribers_repository = subscribers_repository
 
 	def get_subscriber_by_link(self, http_request: HttpRequest) -> HttpResponse:
-		link = http_request.query['link']
-		event_id = http_request.query['event_id']
+		link = http_request.param['link']
+		event_id = http_request.param['event_id']
 		subscribers = self.__subscribers_repository.select_subscribers_by_link(link, event_id)
 		return self.__format_subscriber_response(subscribers)
 
 	def get_event_ranking(self, http_request: HttpRequest) -> HttpResponse:
-		event_id = http_request.query['event_id']
+		event_id = http_request.param['event_id']
 		ranking = self.__subscribers_repository.get_ranking(event_id)
 		return self.__format_ranking_response(ranking)
 
